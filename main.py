@@ -13,16 +13,16 @@ class Example(QMainWindow):
 
     def run(self):
         self.flag = True
+        self.repaint()
 
     def paintEvent(self, e):
         qp = QPainter()
         qp.begin(self)
         if self.flag:
-            qp.setBrush(QColor(*[randint(0, 255) for _ in range(3)]))
-            size = randint(10, 50)
+            qp.setBrush(QColor(*[250, 250, 0]))
+            size = randint(10, 200)
             x, y = randint(10, 500), randint(10, 500)
             qp.drawEllipse(x, y, size, size)
-            print(x, y)
             self.flag = False
         qp.end()
 
